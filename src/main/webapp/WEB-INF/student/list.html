@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List Student</title>
+</head>
+<body>
+<h2>List Classroom</h2>
+<p>
+    <a th:href="@{/students/create}"><button type="button">Create Student</button></a>
+</p>
+<p>
+    <a th:href="@{/classrooms}"><button type="button">List Classroom</button></a>
+</p>
+<table border="1" >
+    <tr>
+        <th colspan="7">LIST STUDENT</th>
+    </tr>
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>AGE</th>
+        <th>ADDRESS</th>
+        <th>CLASSROOM</th>
+        <th colspan="2">ACTION</th>
+    </tr>
+    <tr th:each="element : ${students}">
+        <td th:text="${element.id}"></td>
+        <td th:text="${element.name}"></td>
+        <td th:text="${element.age}"></td>
+        <td th:text="${element.address}"></td>
+        <td th:text="${element.classroom.name}"></td>
+        <td><a th:href="@{/students/{id}/update(id=${element.getId()})}"><button type="button">Update</button></a></td>
+        <td><a th:href="@{/students/{id}/delete(id=${element.getId()})}"><button type="button">Delete</button></a></td>
+    </tr>
+</table>
+</body>
+</html>

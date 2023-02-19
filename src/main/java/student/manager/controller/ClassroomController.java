@@ -62,5 +62,4 @@ public class ClassroomController {
         modelAndView.addObject("message","Xóa thành công");
         return modelAndView;
     }
-    
 }
