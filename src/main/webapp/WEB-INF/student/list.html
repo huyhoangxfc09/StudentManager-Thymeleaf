@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>List Student</title>
 </head>
 <body>
-<h2>List Classroom</h2>
+<h2>List Student</h2>
 <p>
     <a th:href="@{/students/create}"><button type="button">Create Student</button></a>
 </p>
@@ -17,15 +17,15 @@
         <th colspan="7">LIST STUDENT</th>
     </tr>
     <tr>
-        <th>ID</th>
+        <th>STT</th>
         <th>NAME</th>
         <th>AGE</th>
         <th>ADDRESS</th>
         <th>CLASSROOM</th>
         <th colspan="2">ACTION</th>
     </tr>
-    <tr th:each="element : ${students}">
-        <td th:text="${element.id}"></td>
+    <tr th:each="element,status : ${students}">
+        <td th:text="${status.count}"></td>
         <td th:text="${element.name}"></td>
         <td th:text="${element.age}"></td>
         <td th:text="${element.address}"></td>

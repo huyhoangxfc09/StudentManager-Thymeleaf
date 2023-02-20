@@ -22,7 +22,8 @@ public class ClassroomController {
         return "classroom/list";
     }
     @GetMapping("/create")
-    public String createForm(){
+    public String createForm(Model model){
+        model.addAttribute("classroom", new Classroom());
         return "classroom/create";
     }
     @PostMapping("/create")

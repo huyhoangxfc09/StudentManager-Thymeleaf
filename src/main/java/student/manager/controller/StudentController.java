@@ -29,6 +29,7 @@ public class StudentController {
     }
     @GetMapping("/create")
     public String createForm(Model model){
+        model.addAttribute("student",new Student());
         model.addAttribute("classrooms",classroomICrudService.findAll());
         return "student/create";
     }
@@ -50,6 +51,14 @@ public class StudentController {
     public ModelAndView updateStudent(@ModelAttribute Student student,@PathVariable int id){
         Student studentUpdate = studentICrudService.findById(id);
         int index = studentICrudService.findAll().indexOf(studentUpdate);
+        Classroom classroom = null;
+        for (Classroom e : classroomICrudService.findAll()) {
+            if (e.getName().equals(student.getClassroom().getName())){
+                classroom = e;
+                break;
+            }
+        }
+        student.setClassroom(classroom);
         studentICrudService.update(index,student);
         ModelAndView modelAndView = new ModelAndView("student/update");
         modelAndView.addObject("students",student);

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -10,31 +10,31 @@
 <div th:if="${message} != null">
     <span th:text="${message}" style="color: blue"></span>
 </div>
-<form method="post" th:action="@{/students/create}">
+<form method="post" th:action="@{/students/create}" th:object="${student}">
     <fieldset style="width: 20%">
         <legend>Create Classroom</legend>
         <table>
             <tr>
                 <th>Id</th>
-                <td><input type="number" name="id"></td>
+                <td><input type="number" th:field="*{id}"></td>
             </tr>
             <tr>
                 <th>Name</th>
-                <td><input type="text" name="name"></td>
+                <td><input type="text" th:field="*{name}"></td>
             </tr>
             <tr>
                 <th>Age</th>
-                <td><input type="number" name="age"></td>
+                <td><input type="number" th:field="*{age}"></td>
             </tr>
             <tr>
                 <th>Address</th>
-                <td><input type="text" name="address"></td>
+                <td><input type="text" th:field="*{address}"></td>
             </tr>
             <tr>
                 <th>Classroom</th>
                 <td>
-                    <select name="classroom" id="classroom" >
-                        <option th:each="element : ${classrooms}" th:text="${element.name}" ></option>
+                    <select th:field="*{classroom}" id="classroom" >
+                        <option th:each="element : ${classrooms}" th:value="${element.name}" th:text="${element.name}" ></option>
                     </select>
                 </td>
             </tr>

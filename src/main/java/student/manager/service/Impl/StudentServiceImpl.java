@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StudentServiceImpl implements ICrudService<Student> {
-    private final List<Student> studentList;
-    private  final ICrudService<Classroom> classroomICrudService;
+    static List<Student> studentList;
+    static ICrudService<Classroom> classroomICrudService;
     public StudentServiceImpl(ICrudService<Classroom> classroomICrudService){
         studentList = new ArrayList<>();
         studentList.add(new Student(1,"hoang",28,"thai binh",classroomICrudService.findAll().get(0)));

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
     <title>Title</title>
 </head>
 <body>
@@ -10,7 +10,7 @@
 <div th:if="${message}">
     <span th:text="${message}" style="color: blue"></span>
 </div>
-<form method="post" th:action="@{/students/{id}/update(id=${students.getId()})}">
+<form method="post" th:action="@{/students/{id}/update(id=${students.getId()})}" th:object="${student}">
     <fieldset style="width: 20%">
         <legend>Update Classroom</legend>
         <table>
@@ -34,7 +34,7 @@
                 <th>Classroom</th>
                 <td>
                     <select name="classroom" id="classroom" >
-                        <option th:each="element : ${classrooms}" th:text="${element.name}" ></option>
+                        <option th:each="element : ${classrooms}"  th:text="${element.name}" ></option>
                     </select>
                 </td>
             </tr>
