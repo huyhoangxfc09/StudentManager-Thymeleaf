@@ -7,7 +7,7 @@
 <body>
 <h2>Create Student</h2>
 <a th:href="@{/students}"><button>Back to list student</button></a>
-<div th:if="${message}">
+<div th:if="${message} != null">
     <span th:text="${message}" style="color: blue"></span>
 </div>
 <form method="post" th:action="@{/students/create}">

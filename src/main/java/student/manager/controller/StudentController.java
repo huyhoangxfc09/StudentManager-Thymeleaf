@@ -47,7 +47,7 @@ public class StudentController {
         return "student/update";
     }
     @PostMapping("/{id}/update")
-    public ModelAndView updateClassroom(@ModelAttribute Student student,@PathVariable int id){
+    public ModelAndView updateStudent(@ModelAttribute Student student,@PathVariable int id){
         Student studentUpdate = studentICrudService.findById(id);
         int index = studentICrudService.findAll().indexOf(studentUpdate);
         studentICrudService.update(index,student);
@@ -64,7 +64,7 @@ public class StudentController {
         return "student/delete";
     }
     @PostMapping("/{id}/delete")
-    public ModelAndView deleteClassroom(@PathVariable int id){
+    public ModelAndView deleteStudent(@PathVariable int id){
         studentICrudService.delete(id);
         ModelAndView modelAndView = new ModelAndView("student/delete");
         modelAndView.addObject("message","Xóa thành công");
