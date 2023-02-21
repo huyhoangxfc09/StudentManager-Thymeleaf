@@ -15,9 +15,7 @@ public class ClassroomServiceImpl implements ICrudService<Classroom> {
         classroomList.add(new Classroom(3,"C01022I1"));
         classroomList.add(new Classroom(4,"C1122K1"));
     }
-    static {
 
-    }
     @Override
     public List<Classroom> findAll() {
         return classroomList;
